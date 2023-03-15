@@ -31,7 +31,7 @@ export default function AlertDialog() {
           {"Billion dollars chat app 😜"}
         </DialogTitle>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus variant="contained">
+          <Button onClick={handleClose} variant="contained">
             Ok
           </Button>
         </DialogActions>
