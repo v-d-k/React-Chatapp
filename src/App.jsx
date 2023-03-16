@@ -4,13 +4,51 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import AlertDialog from "./Popup";
-const user = true;
+const user = false;
 function App() {
-  return <section> {user ? <ChatRoom /> : <SignIn />}</section>; 
+  return <section> {user ? <ChatRoom /> : <SignIn />}</section>;
 }
 
 function SignIn() {
-  return <h1>hello</h1>;
+  return (
+    <Container
+      sx={{
+        bgcolor: "#0a1929",
+        minHeight: "100vh",
+        maxHeight: "100%",
+        width: 750,
+        maxWidth: "100%",
+      }}
+    >
+      <Box
+        sx={{
+          minHeight: "100vh",
+          maxHeight: "100%",
+          width: 750,
+          maxWidth: "100%",
+          display: "flex",
+          flexFlow: "column wrap",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1
+          style={{
+            margin: "1rem",
+          }}
+        >
+          Please sign in to join
+        </h1>
+        <Button variant="outlined" size="large">
+          <img
+            src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+            alt=""
+          />
+          &nbsp;&nbsp;Google signin
+        </Button>
+      </Box>
+    </Container>
+  );
 }
 function ChatRoom() {
   return (
