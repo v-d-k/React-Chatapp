@@ -35,6 +35,7 @@ function SignIn() {
         <h1
           style={{
             margin: "1rem",
+            fontSize: "1.2rem",
           }}
         >
           Please sign in to join
