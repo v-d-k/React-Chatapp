@@ -44,13 +44,13 @@ function SignIn() {
         </h1>
         <Button variant="outlined" size="large" sx={{
           textTransform:"none",
-          fontSize:"1.2rem",
+          fontSize:"1rem",
         }}>
           <img
             src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
             alt=""
           />
-          &nbsp;&nbsp;Google Signin
+          &nbsp;&nbsp;Continue with Google
         </Button>
       </Box>
     </Container>
