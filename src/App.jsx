@@ -38,6 +38,7 @@ function SignIn() {
           style={{
             margin: "1rem",
             fontSize: "1.4rem",
+            fontFamily:"monospace"
           }}
         >
           Please sign in to join
