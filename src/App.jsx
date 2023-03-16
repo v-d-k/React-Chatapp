@@ -37,17 +37,20 @@ function SignIn() {
         <h1
           style={{
             margin: "1rem",
-            fontSize: "1.2rem",
+            fontSize: "1.4rem",
           }}
         >
           Please sign in to join
         </h1>
-        <Button variant="outlined" size="large">
+        <Button variant="outlined" size="large" sx={{
+          textTransform:"none",
+          fontSize:"1.2rem",
+        }}>
           <img
             src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
             alt=""
           />
-          &nbsp;&nbsp;Google signin
+          &nbsp;&nbsp;Google Signin
         </Button>
       </Box>
     </Container>
