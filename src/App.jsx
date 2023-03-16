@@ -18,6 +18,7 @@ function SignIn() {
         maxHeight: "100%",
         width: 750,
         maxWidth: "100%",
+        overflow: "hidden",
       }}
     >
       <Box
