@@ -14,10 +14,10 @@ jobs:
         run: git remote add upstream https://github.com/Kachavi/React-Chatapp.git
         
       - name: Fetch upstream changes
-        run: git fetch upstream
+        run: git fetch https://github.com/Kachavi/React-Chatapp.git
       
       - name: Merge upstream changes
-        run: git merge upstream/main
+        run: git merge https://github.com/Kachavi/React-Chatapp.git
       
       - name: Push changes to forked repo
         run: |
