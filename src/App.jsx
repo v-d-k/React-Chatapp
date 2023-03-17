@@ -38,15 +38,19 @@ function SignIn() {
           style={{
             margin: "1rem",
             fontSize: "1.4rem",
-            fontFamily:"monospace"
+            fontFamily: "monospace",
           }}
         >
           Please sign in to join
         </h1>
-        <Button variant="outlined" size="large" sx={{
-          textTransform:"none",
-          fontSize:"1rem",
-        }}>
+        <Button
+          variant="outlined"
+          size="large"
+          sx={{
+            textTransform: "none",
+            fontSize: "1rem",
+          }}
+        >
           <img
             src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
             alt=""
@@ -68,7 +72,6 @@ function ChatRoom() {
         maxWidth: "100%",
       }}
     >
-      <AlertDialog />
       <Box
         sx={{
           width: 700,
