@@ -1,114 +1,38 @@
 import "./App.css";
-import { Container } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import AlertDialog from "./Popup";
-const user = false;
+import SignIn from "./components/SignIn";
+import ChatRoom from "./components/ChatRoom";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useState } from "react";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB3xebR_aDtCqehjt60X8xANulYgqc6ywQ",
+  authDomain: "stalwart-way-356207.firebaseapp.com",
+  projectId: "stalwart-way-356207",
+  storageBucket: "stalwart-way-356207.appspot.com",
+  messagingSenderId: "352167268223",
+  appId: "1:352167268223:web:76a41cc5a49171d59ed44a",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider(app);
+
+export const googleSignIn = async () => {
+  await signInWithPopup(auth, googleProvider);
+  return auth.currentUser;
+};
+
 function App() {
-  return <section> {user ? <ChatRoom /> : <SignIn />}</section>;
+  const [user, setUser] = useState(null);
+  auth.onAuthStateChanged((user) => {
+    setUser(user);
+  });
+
+  return <section>{user ? <ChatRoom /> : <SignIn />}</section>;
 }
 
-function SignIn() {
-  return (
-    <Container
-      sx={{
-        bgcolor: "#0a1929",
-        minHeight: "100vh",
-        maxHeight: "100%",
-        width: 750,
-        maxWidth: "100%",
-        overflowY: "hidden",
-        overflowX: "hidden",
-      }}
-    >
-      <Box
-        sx={{
-          minHeight: "100vh",
-          maxHeight: "100%",
-          width: 750,
-          maxWidth: "100%",
-          display: "flex",
-          flexFlow: "column wrap",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1
-          style={{
-            margin: "1rem",
-            fontSize: "1.4rem",
-            fontFamily:"monospace"
-          }}
-        >
-          Please sign in to join
-        </h1>
-        <Button variant="outlined" size="large" sx={{
-          textTransform:"none",
-          fontSize:"1rem",
-        }}>
-          <img
-            src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
-            alt=""
-          />
-          &nbsp;&nbsp;Continue with Google
-        </Button>
-      </Box>
-    </Container>
-  );
-}
-function ChatRoom() {
-  return (
-    <Container
-      sx={{
-        bgcolor: "#0a1929",
-        minHeight: "100vh",
-        maxHeight: "100%",
-        width: 750,
-        maxWidth: "100%",
-      }}
-    >
-      <AlertDialog />
-      <Box
-        sx={{
-          width: 700,
-          maxWidth: "90%",
-          display: "flex",
-          gap: 1,
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          margin: "auto",
-          padding: 2,
-          bgcolor: "#0a1929",
-        }}
-      >
-        <TextField
-          fullWidth
-          label="Chat"
-          id="fullWidth"
-          sx={{
-            "& .MuiInputBase-root": {
-              color: "white",
-              borderColor: "white",
-              "&:hover fieldset": {
-                borderColor: "#1976d2",
-              },
-            },
-            "& .MuiFormLabel-root": {
-              color: "white",
-            },
-            "& .MuiOutlinedInput-notchedOutline": {
-              border: "#1976d2 1px solid",
-            },
-          }}
-        />
-        <Button variant="contained" style={{ fontSize: "20px" }}>
-          ▷
-        </Button>
-      </Box>
-    </Container>
-  );
-}
 export default App;
